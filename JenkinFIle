@@ -10,7 +10,7 @@ pipeline{
         }
         stage('check details'){
             steps{
-                sh "pwd; ls -l"
+                sh "pwd; ls -l;date"
             }
         }
         stage('copying code'){
