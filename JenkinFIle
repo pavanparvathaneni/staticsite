@@ -15,7 +15,8 @@ pipeline{
         }
         stage('copying code'){
             steps{
-                sh "sudo cp -r /home/ec2-user/jenkins/workspace/UI-Build/* /var/www/html"
+                // sh "sudo cp -r /home/ec2-user/jenkins/workspace/UI-Build/* /var/www/html"
+                sh "sudo cp -r ${WORKSPACE}/* /var/www/html"
                 sh "cd /var/www/html ; ls -l;"
             }
         }
