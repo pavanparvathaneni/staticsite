@@ -28,7 +28,11 @@ pipeline{
                 ps -ef |grep http
                 '''
             }
-        }
-        
+        }    
+    }
+    post {
+    always {
+          cleanWs()
+          }
     }
 }
