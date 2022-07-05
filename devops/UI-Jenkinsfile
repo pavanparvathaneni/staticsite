@@ -1,0 +1,28 @@
+pipeline{
+    agent any
+    stages{  
+        stage('Build code'){
+            steps{
+                sh '''
+                cd ${WORKSPACE}
+                pwd
+                ls -l
+                tar -cvf UI.tar *
+                gzip UI.tar
+                ls -l *.gz
+                '''
+            }
+        }
+        stage('push code to nexus'){
+            steps{
+                curl -v -u admin:pavan123 --uploadfile UI.tar "http://3.90.150.26:8081/service/rest/repository/browse/Application-builds/DEV/UI.tar"
+            }
+        }   
+    }
+    post {
+        always
+        {
+          cleanWs()
+        }
+    }
+}
