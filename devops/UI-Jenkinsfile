@@ -6,7 +6,7 @@ pipeline{
                 sh '''
                 cd ${WORKSPACE}
                 pwd
-                TAR_NAME="UI_`date +"%Y%m%d_%H%M"`_${BUILD_NUMBER}.tar
+                TAR_NAME="UI_`date +%Y%m%d_%H%M`_${BUILD_NUMBER}.tar"
                 echo ${TAR_NAME}
                 ls -l
                 tar -cvf ${TAR_NAME} *
