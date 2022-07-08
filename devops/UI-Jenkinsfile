@@ -7,15 +7,15 @@ pipeline{
                 cd ${WORKSPACE}
                 pwd
                 ls -l
-                tar -cvf UI.tar *
-                gzip UI.tar
+                tar -cvf UI_${BUILD_NUMBER}.tar *
+                gzip UI_${BUILD_NUMBER}.tar
                 ls -l *.gz
                 '''
             }
         }
         stage('push code to nexus'){
             steps{
-                sh "curl -v -u pavan:pavan123 --upload-file UI.tar.gz http://34.204.80.116:8081/repository/Application-builds/DEV/UI.tar.gz"
+                sh "curl -v -u pavan:pavan123 --upload-file UI_${BUILD_NUMBER}.tar.gz http://34.204.80.116:8081/repository/Application-builds/DEV/UI_${BUILD_NUMBER}.tar.gz"
             }
         }   
     }
