@@ -15,7 +15,7 @@ pipeline{
         }
         stage('push code to nexus'){
             steps{
-                curl -v -u admin:pavan123 --uploadfile UI.tar "http://3.90.150.26:8081/service/rest/repository/browse/Application-builds/DEV/UI.tar"
+                curl -v -u admin:pavan123 --uploadfile UI.tar "http://34.204.80.116:8081/service/rest/repository/browse/Application-builds/DEV/UI.tar"
             }
         }   
     }
