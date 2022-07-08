@@ -17,7 +17,7 @@ pipeline{
         }
         stage('push code to nexus'){
             steps{
-                sh "curl -v -u pavan:pavan123 --upload-file ${${TAR_NAME}}.gz http://34.204.80.116:8081/repository/Application-builds/DEV/${${TAR_NAME}}.gz"
+                sh "curl -v -u pavan:pavan123 --upload-file ${TAR_NAME}.gz http://34.204.80.116:8081/repository/Application-builds/DEV/${TAR_NAME}.gz"
             }
         }   
     }
